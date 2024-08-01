@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickWal Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="logo">QuickWal</div>
+            <nav>
+                <ul>
+                    <li><a href="/dashboard">DASHBOARD</a></li>
+                    <li><a href="/topup">TOP-UP</a></li>
+                    <li><a href="/buy">BUY</a></li>
+                    <li><a href="/sell">SELL</a></li>
+                    <li><a href="/swap">SWAP</a></li>
+                    <li><a href="/send">SEND</a></li>
+                    <li><a href="/receive">RECEIVE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <div class="dashboard-title">DASHBOARD</div>
+                <div class="actions">
+                    <button onclick="location.href='/topup'">TOP-UP</button>
+                    <button onclick="location.href='/buy'">BUY</button>
+                    <button onclick="location.href='/sell'">SELL</button>
+                    <button onclick="location.href='/swap'">SWAP</button>
+                    <button onclick="location.href='/send'">SEND</button>
+                    <button onclick="location.href='/receive'">RECEIVE</button>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Language</button>
+                    <div class="dropdown-content">
+                        <a href="?lang=en">English</a>
+                        <a href="?lang=zh">Chinese</a>
+                        <a href="?lang=es">Spanish</a>
+                    </div>
+                </div>
+            </header>
+            <div class="balance">$0.00</div>
+            <div class="tabs">
+                <button onclick="showTab('tokens')">TOKENS</button>
+                <button onclick="showTab('nfts')">NFTs</button>
+                <button onclick="showTab('transactions')">TRANSACTIONS</button>
+                <button onclick="showTab('spending-caps')">SPENDING CAPS</button>
+            </div>
+            <div class="content">
+                <div id="tokens" class="tab-content" style="display: none;">
+                    <p>No tokens to show</p>
+                    <button>BUY TOKENS</button>
+                </div>
+                <div id="nfts" class="tab-content" style="display: none;">
+                    <p>No NFTs to show</p>
+                    <button>BUY NFT</button>
+                </div>
+                <div id="transactions" class="tab-content" style="display: none;">
+                    <p>No transactions to show</p>
+                    <button>Refresh</button>
+                </div>
+                <div id="spending-caps" class="tab-content" style="display: none;">
+                    <p>No spending caps set</p>
+                    <button>SET SPENDING CAP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+        }
+        showTab('tokens');
+    </script>
+</body>
+</html>

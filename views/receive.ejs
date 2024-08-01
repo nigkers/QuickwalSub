@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickWal Receive</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Receive Cryptocurrency</h1>
+        <label for="crypto">Select Cryptocurrency:</label>
+        <select id="crypto" name="crypto">
+            <option value="btc">Bitcoin (BTC)</option>
+            <option value="eth">Ethereum (ETH)</option>
+            <option value="ltc">Litecoin (LTC)</option>
+        </select>
+        <img src="https://th.bing.com/th?id=OIF.VqQi%2bzqd5HFhjRhfO67%2fVg&rs=1&pid=ImgDetMain" width = "500"  height = "500">
+        <button onclick="generateAddress()">Generate Address</button>
+        <div id="addressContainer"></div>
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
+    <script>
+        function generateAddress() {
+            const addressContainer = document.getElementById('addressContainer');
+            const crypto = document.getElementById('crypto').value;
+            const address = `GeneratedAddressFor_${crypto}`;
+            addressContainer.innerHTML = `<p>Your Address: ${address}</p>`;
+        }
+    </script>
+</body>
+</html>
